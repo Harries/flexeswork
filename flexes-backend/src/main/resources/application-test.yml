@@ -1,0 +1,76 @@
+# 测试环境配置
+spring:
+  # 数据源配置 - 使用内存数据库
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  # H2 控制台配置
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  # JPA 配置
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+        use_sql_comments: true
+  
+  # Redis 配置 - 使用嵌入式Redis
+  redis:
+    host: localhost
+    port: 6370  # 使用不同端口避免冲突
+    timeout: 2000ms
+    database: 1
+  
+  # 缓存配置
+  cache:
+    type: simple  # 使用简单缓存
+
+# 日志配置
+logging:
+  level:
+    com.flexes: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(%5p) %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+
+# Flexes 测试环境配置
+flexes:
+  # JWT 配置 (测试环境使用较短的过期时间)
+  jwt:
+    secret: flexes-test-jwt-secret-key-2025
+    expiration: 300000 # 5分钟
+    refresh-expiration: 600000 # 10分钟
+  
+  # 业务规则配置 (测试环境放宽限制)
+  business:
+    daily-application-limit: 100
+    job-approval-required: false
+    email-verification-required: false
+  
+  # 文件存储配置
+  file:
+    upload-path: test-uploads/
+    base-url: http://localhost:8080/api/files/
+  
+  # 邮件配置 (测试环境禁用)
+  mail:
+    enabled: false
+
+# 管理端点配置 (测试环境暴露所有端点)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

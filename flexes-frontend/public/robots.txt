@@ -1,0 +1,8 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Disallow: /dashboard
+Allow: /
+
+Sitemap: https://flexes.work/sitemap.xml

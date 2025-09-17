@@ -1,0 +1,28 @@
+{
+  "short_name": "Flexes",
+  "name": "Flexes - 远程工程招聘平台",
+  "description": "专业的远程工程招聘平台，连接优秀的工程师人才与远程工作机会",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1890ff",
+  "background_color": "#ffffff",
+  "categories": ["business", "productivity"],
+  "lang": "zh-CN"
+}
