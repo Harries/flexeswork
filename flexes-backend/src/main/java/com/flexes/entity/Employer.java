@@ -21,8 +21,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "employers", indexes = {
-    @Index(name = "idx_user_id", columnList = "userId"),
-    @Index(name = "idx_company_name", columnList = "companyName"),
+    @Index(name = "idx_user_id", columnList = "user_id"),
+    @Index(name = "idx_company_name", columnList = "company_name"),
     @Index(name = "idx_industry", columnList = "industry"),
     @Index(name = "idx_verified", columnList = "verified")
 })

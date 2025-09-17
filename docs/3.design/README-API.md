@@ -59,7 +59,7 @@
 
 ### API 基础信息
 
-- **Base URL**: `http://localhost:8080/api`
+- **Base URL**: `http://localhost:8081/api`
 - **API 版本**: v1.0
 - **认证方式**: JWT Bearer Token
 - **数据格式**: JSON
@@ -77,7 +77,7 @@
 
 ```bash
 # 用户登录
-curl -X POST http://localhost:8080/api/auth/login \
+curl -X POST http://localhost:8081/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
@@ -221,12 +221,12 @@ curl -X GET http://localhost:8080/api/users/profile \
    ```
 
 2. **访问 API 文档**:
-   - Swagger UI: http://localhost:8080/api/swagger-ui.html
-   - OpenAPI JSON: http://localhost:8080/api/api-docs
+   - Swagger UI: http://localhost:8081/api/swagger-ui.html
+   - OpenAPI JSON: http://localhost:8081/api/api-docs
 
 3. **健康检查**:
    ```bash
-   curl http://localhost:8080/api/actuator/health
+   curl http://localhost:8081/api/actuator/health
    ```
 
 ### 测试工具推荐

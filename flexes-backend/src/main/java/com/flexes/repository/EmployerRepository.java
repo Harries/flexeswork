@@ -1,6 +1,7 @@
 package com.flexes.repository;
 
 import com.flexes.entity.Employer;
+import com.flexes.entity.Job;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -101,8 +102,8 @@ public interface EmployerRepository extends JpaRepository<Employer, Long> {
      */
     @Query("SELECT DISTINCT e FROM Employer e " +
            "JOIN Job j ON e.employerId = j.employerId " +
-           "WHERE j.status = com.flexes.entity.Job.JobStatus.ACTIVE")
-    Page<Employer> findEmployersWithActiveJobs(Pageable pageable);
+           "WHERE j.status = :status")
+    Page<Employer> findEmployersWithActiveJobs(@Param("status") Job.JobStatus status, Pageable pageable);
 
     /**
      * 统计雇主发布的职位数量

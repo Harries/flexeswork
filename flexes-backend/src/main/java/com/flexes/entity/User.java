@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
     @Index(name = "idx_email", columnList = "email"),
     @Index(name = "idx_role", columnList = "role"),
     @Index(name = "idx_status", columnList = "status"),
-    @Index(name = "idx_created_at", columnList = "createdAt")
+    @Index(name = "idx_created_at", columnList = "created_at")
 })
 @Data
 @EqualsAndHashCode(callSuper = false)

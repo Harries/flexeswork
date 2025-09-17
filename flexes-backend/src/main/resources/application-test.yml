@@ -49,7 +49,7 @@ logging:
 flexes:
   # JWT 配置 (测试环境使用较短的过期时间)
   jwt:
-    secret: flexes-test-jwt-secret-key-2025
+    secret: flexes-test-jwt-secret-key-2025-secure-256bit-minimum
     expiration: 300000 # 5分钟
     refresh-expiration: 600000 # 10分钟
   
@@ -62,7 +62,7 @@ flexes:
   # 文件存储配置
   file:
     upload-path: test-uploads/
-    base-url: http://localhost:8080/api/files/
+    base-url: http://localhost:8081/api/files/
   
   # 邮件配置 (测试环境禁用)
   mail:

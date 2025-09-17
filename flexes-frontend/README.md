@@ -155,7 +155,7 @@ REACT_APP_NAME=Flexes
 REACT_APP_VERSION=1.0.0
 
 # API 配置
-REACT_APP_API_BASE_URL=http://localhost:8080/api
+REACT_APP_API_BASE_URL=http://localhost:8081/api
 REACT_APP_API_TIMEOUT=10000
 
 # 功能开关
@@ -172,7 +172,7 @@ REACT_APP_DAILY_APPLICATION_LIMIT=20
 
 ```json
 {
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8081"
 }
 ```
 

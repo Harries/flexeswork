@@ -18,14 +18,15 @@ import java.time.LocalDateTime;
  * @version 1.0.0
  */
 @Entity
-@Table(name = "job_applications", 
+@Table(name = "job_applications",
        uniqueConstraints = @UniqueConstraint(name = "uk_job_candidate", columnNames = {"job_id", "candidate_id"}),
        indexes = {
-    @Index(name = "idx_job_id", columnList = "jobId"),
-    @Index(name = "idx_candidate_id", columnList = "candidateId"),
+    @Index(name = "idx_job_id", columnList = "job_id"),
+    @Index(name = "idx_candidate_id", columnList = "candidate_id"),
     @Index(name = "idx_status", columnList = "status"),
-    @Index(name = "idx_applied_at", columnList = "appliedAt")
+    @Index(name = "idx_applied_at", columnList = "applied_at")
 })
+@AttributeOverride(name = "createdAt", column = @Column(name = "applied_at", nullable = false, updatable = false))
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
@@ -59,10 +60,6 @@ public class JobApplication extends BaseEntity {
 
     @Column(name = "employer_notes", columnDefinition = "TEXT")
     private String employerNotes;
-
-    @Column(name = "applied_at", nullable = false)
-    @Builder.Default
-    private LocalDateTime appliedAt = LocalDateTime.now();
 
     // 关联关系
     @ManyToOne(fetch = FetchType.LAZY)

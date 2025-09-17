@@ -22,7 +22,7 @@ import java.time.LocalDate;
 @Table(name = "daily_application_limits",
        uniqueConstraints = @UniqueConstraint(name = "uk_candidate_date", columnNames = {"candidate_id", "application_date"}),
        indexes = {
-    @Index(name = "idx_application_date", columnList = "applicationDate")
+    @Index(name = "idx_application_date", columnList = "application_date")
 })
 @Data
 @EqualsAndHashCode(callSuper = false)

@@ -21,7 +21,7 @@ import java.util.List;
 @Table(name = "job_categories", indexes = {
     @Index(name = "idx_slug", columnList = "slug"),
     @Index(name = "idx_status", columnList = "status"),
-    @Index(name = "idx_sort_order", columnList = "sortOrder")
+    @Index(name = "idx_sort_order", columnList = "sort_order")
 })
 @Data
 @EqualsAndHashCode(callSuper = false)

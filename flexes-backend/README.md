@@ -112,8 +112,8 @@ flexes-backend/
    ```
 
 6. **访问应用**
-   - API 文档: http://localhost:8080/api/swagger-ui.html
-   - 健康检查: http://localhost:8080/api/actuator/health
+   - API 文档: http://localhost:8081/api/swagger-ui.html
+   - 健康检查: http://localhost:8081/api/actuator/health
 
 ### Docker 部署
 
@@ -126,7 +126,7 @@ flexes-backend/
    ```bash
    docker run -d \
      --name flexes-backend \
-     -p 8080:8080 \
+     -p 8081:8081 \
      -e DB_USERNAME=flexes_user \
      -e DB_PASSWORD=flexes_password \
      -e REDIS_HOST=redis \
@@ -141,7 +141,7 @@ services:
   backend:
     build: .
     ports:
-      - "8080:8080"
+      - "8081:8081"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - DB_HOST=mysql
@@ -178,8 +178,8 @@ volumes:
 
 启动应用后，可以通过以下地址访问 API 文档：
 
-- Swagger UI: http://localhost:8080/api/swagger-ui.html
-- OpenAPI JSON: http://localhost:8080/api/api-docs
+- Swagger UI: http://localhost:8081/api/swagger-ui.html
+- OpenAPI JSON: http://localhost:8081/api/api-docs
 
 ### 主要 API 端点
 

@@ -5,7 +5,7 @@
 本文档详细描述了 Flexes 远程工程招聘平台的后端 REST API 接口规范，包括认证、用户管理、职位管理、申请管理等核心功能模块的接口定义。
 
 **API 基础信息**
-- **Base URL**: `http://localhost:8080/api`
+- **Base URL**: `http://localhost:8081/api`
 - **API 版本**: v1.0
 - **认证方式**: JWT Bearer Token
 - **数据格式**: JSON

@@ -22,10 +22,10 @@ import java.util.List;
  */
 @Entity
 @Table(name = "candidates", indexes = {
-    @Index(name = "idx_user_id", columnList = "userId"),
+    @Index(name = "idx_user_id", columnList = "user_id"),
     @Index(name = "idx_location", columnList = "location"),
-    @Index(name = "idx_experience", columnList = "experienceYears"),
-    @Index(name = "idx_job_status", columnList = "jobStatus")
+    @Index(name = "idx_experience", columnList = "experience_years"),
+    @Index(name = "idx_job_status", columnList = "job_status")
 })
 @Data
 @EqualsAndHashCode(callSuper = false)

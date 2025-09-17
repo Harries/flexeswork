@@ -22,13 +22,13 @@ import java.util.List;
  */
 @Entity
 @Table(name = "jobs", indexes = {
-    @Index(name = "idx_employer_id", columnList = "employerId"),
-    @Index(name = "idx_category_id", columnList = "categoryId"),
+    @Index(name = "idx_employer_id", columnList = "employer_id"),
+    @Index(name = "idx_category_id", columnList = "category_id"),
     @Index(name = "idx_status", columnList = "status"),
-    @Index(name = "idx_created_at", columnList = "createdAt"),
+    @Index(name = "idx_created_at", columnList = "created_at"),
     @Index(name = "idx_location", columnList = "location"),
-    @Index(name = "idx_employment_type", columnList = "employmentType"),
-    @Index(name = "idx_experience_level", columnList = "experienceLevel"),
+    @Index(name = "idx_employment_type", columnList = "employment_type"),
+    @Index(name = "idx_experience_level", columnList = "experience_level"),
     @Index(name = "idx_featured", columnList = "featured")
 })
 @Data

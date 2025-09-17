@@ -78,20 +78,20 @@ public interface JobApplicationRepository extends JpaRepository<JobApplication, 
     /**
      * 查找求职者最近的申请
      */
-    @Query("SELECT ja FROM JobApplication ja WHERE ja.candidateId = :candidateId ORDER BY ja.appliedAt DESC")
+    @Query("SELECT ja FROM JobApplication ja WHERE ja.candidateId = :candidateId ORDER BY ja.createdAt DESC")
     List<JobApplication> findRecentApplicationsByCandidate(@Param("candidateId") Long candidateId, Pageable pageable);
 
     /**
      * 查找职位最近的申请
      */
-    @Query("SELECT ja FROM JobApplication ja WHERE ja.jobId = :jobId ORDER BY ja.appliedAt DESC")
+    @Query("SELECT ja FROM JobApplication ja WHERE ja.jobId = :jobId ORDER BY ja.createdAt DESC")
     List<JobApplication> findRecentApplicationsByJob(@Param("jobId") Long jobId, Pageable pageable);
 
     /**
      * 根据申请时间范围查找申请
      */
-    @Query("SELECT ja FROM JobApplication ja WHERE ja.appliedAt BETWEEN :startTime AND :endTime")
-    List<JobApplication> findByAppliedAtBetween(@Param("startTime") LocalDateTime startTime, 
+    @Query("SELECT ja FROM JobApplication ja WHERE ja.createdAt BETWEEN :startTime AND :endTime")
+    List<JobApplication> findByAppliedAtBetween(@Param("startTime") LocalDateTime startTime,
                                                @Param("endTime") LocalDateTime endTime);
 
     /**
@@ -129,7 +129,7 @@ public interface JobApplicationRepository extends JpaRepository<JobApplication, 
     /**
      * 查找指定时间后的申请
      */
-    @Query("SELECT ja FROM JobApplication ja WHERE ja.appliedAt >= :since")
+    @Query("SELECT ja FROM JobApplication ja WHERE ja.createdAt >= :since")
     List<JobApplication> findApplicationsSince(@Param("since") LocalDateTime since);
 
     /**
@@ -138,7 +138,7 @@ public interface JobApplicationRepository extends JpaRepository<JobApplication, 
     @Query("SELECT ja FROM JobApplication ja " +
            "JOIN Job j ON ja.jobId = j.jobId " +
            "WHERE j.employerId = :employerId AND ja.status = :status " +
-           "ORDER BY ja.appliedAt ASC")
+           "ORDER BY ja.createdAt ASC")
     List<JobApplication> findPendingApplicationsByEmployer(@Param("employerId") Long employerId,
                                                           @Param("status") JobApplication.ApplicationStatus status);
 

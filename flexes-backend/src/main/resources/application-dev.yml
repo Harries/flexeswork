@@ -2,9 +2,9 @@
 spring:
   # 数据源配置
   datasource:
-    url: jdbc:mysql://localhost:3306/flexes_platform?useUnicode=true&characterEncoding=utf8mb4&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: ${DB_USERNAME:flexes_user}
-    password: ${DB_PASSWORD:flexes_password}
+    url: jdbc:mysql://localhost:3306/flexes_platform?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
   
   # JPA 配置
   jpa:
@@ -21,7 +21,7 @@ spring:
   redis:
     host: ${REDIS_HOST:localhost}
     port: ${REDIS_PORT:6379}
-    password: ${REDIS_PASSWORD:}
+    password: ${REDIS_PASSWORD:123456}
   
   # 开发工具配置
   devtools:
@@ -45,7 +45,7 @@ logging:
 flexes:
   # JWT 配置 (开发环境使用较短的过期时间便于测试)
   jwt:
-    secret: flexes-dev-jwt-secret-key-2025
+    secret: flexes-dev-jwt-secret-key-2025-secure-256bit-minimum
     expiration: 3600000 # 1小时
     refresh-expiration: 86400000 # 24小时
   
@@ -58,7 +58,7 @@ flexes:
   # 文件存储配置
   file:
     upload-path: uploads/dev/
-    base-url: http://localhost:8080/api/files/
+    base-url: http://localhost:8081/api/files/
   
   # 邮件配置 (开发环境禁用)
   mail:
