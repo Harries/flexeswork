@@ -78,9 +78,12 @@ public class SecurityConfig {
             .antMatchers("/public/**").permitAll()
             .antMatchers("/actuator/**").permitAll()
             .antMatchers("/swagger-ui/**").permitAll()
+            .antMatchers("/swagger-ui.html").permitAll()
             .antMatchers("/api-docs/**").permitAll()
             .antMatchers("/v3/api-docs/**").permitAll()
-            
+            .antMatchers("/swagger-resources/**").permitAll()
+            .antMatchers("/webjars/**").permitAll()
+
             // 职位相关接口
             .antMatchers(HttpMethod.GET, "/jobs/**").permitAll()
             .antMatchers(HttpMethod.POST, "/jobs").hasRole("EMPLOYER")

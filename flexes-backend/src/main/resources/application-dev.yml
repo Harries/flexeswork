@@ -9,13 +9,21 @@ spring:
   # JPA 配置
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none  # 让 Flyway 完全管理数据库结构
     show-sql: true
     properties:
       hibernate:
         format_sql: true
         use_sql_comments: true
         generate_statistics: true
+
+  # Flyway 配置
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    out-of-order: false
   
   # Redis 配置
   redis:
