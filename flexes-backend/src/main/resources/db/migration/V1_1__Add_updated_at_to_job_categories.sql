@@ -14,13 +14,9 @@ ALTER TABLE job_categories
 ADD COLUMN updated_at DATETIME(6) NULL COMMENT '更新时间';
 
 -- Step 2: Update existing rows with current timestamp
--- Use created_at if it exists and is valid, otherwise use current timestamp
+-- Use current timestamp for all rows to avoid datetime issues
 UPDATE job_categories
-SET updated_at = CASE
-    WHEN created_at IS NOT NULL AND created_at != '0000-00-00 00:00:00'
-    THEN created_at
-    ELSE CURRENT_TIMESTAMP(6)
-END
+SET updated_at = CURRENT_TIMESTAMP(6)
 WHERE updated_at IS NULL;
 
 -- Step 3: Now make the column NOT NULL

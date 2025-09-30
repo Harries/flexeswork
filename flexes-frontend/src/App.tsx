@@ -20,7 +20,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 
 // Pages
-import HomePage from './pages/Home';
+// import HomePage from './pages/Home';
+import NewHomePage from './pages/Home/NewHomePage';
 import JobListPage from './pages/Jobs/JobList';
 import JobDetailPage from './pages/Jobs/JobDetail';
 import CandidateListPage from './pages/Candidates/CandidateList';
@@ -86,9 +87,11 @@ const AppContent: React.FC = () => {
         <AntdApp>
           <Router>
             <Routes>
-              {/* 公开路由 */}
+              {/* 首页路由 - 不使用Layout */}
+              <Route path="/" element={<NewHomePage />} />
+
+              {/* 其他公开路由 - 使用Layout */}
               <Route path="/" element={<Layout />}>
-                <Route index element={<HomePage />} />
                 <Route path="jobs" element={<JobListPage />} />
                 <Route path="jobs/:id" element={<JobDetailPage />} />
                 <Route path="candidates" element={<CandidateListPage />} />

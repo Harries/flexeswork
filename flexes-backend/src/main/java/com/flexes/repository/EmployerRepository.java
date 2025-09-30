@@ -144,4 +144,13 @@ public interface EmployerRepository extends JpaRepository<Employer, Long> {
      */
     @Query("SELECT e FROM Employer e WHERE e.companyLogo IS NOT NULL AND e.companyLogo != ''")
     Page<Employer> findEmployersWithLogo(Pageable pageable);
+
+    /**
+     * 查找顶级公司（按职位数量和认证状态排序）
+     */
+    @Query("SELECT e FROM Employer e " +
+           "LEFT JOIN Job j ON e.employerId = j.employerId AND j.status = 1 " +
+           "GROUP BY e.employerId " +
+           "ORDER BY e.verified DESC, COUNT(j) DESC")
+    List<Employer> findTopCompanies(Pageable pageable);
 }

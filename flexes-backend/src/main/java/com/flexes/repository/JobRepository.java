@@ -167,4 +167,29 @@ public interface JobRepository extends JpaRepository<Job, Long> {
                              @Param("excludeJobId") Long excludeJobId,
                              @Param("status") Job.JobStatus status,
                              Pageable pageable);
+
+    /**
+     * 根据状态统计职位数量
+     */
+    Long countByStatus(Job.JobStatus status);
+
+    /**
+     * 根据状态查找职位并按创建时间降序排列
+     */
+    List<Job> findByStatusOrderByCreatedAtDesc(Job.JobStatus status, Pageable pageable);
+
+    /**
+     * 根据状态和精选标志查找职位并按创建时间降序排列
+     */
+    List<Job> findByStatusAndFeaturedOrderByCreatedAtDesc(Job.JobStatus status, Boolean featured, Pageable pageable);
+
+    /**
+     * 查询职位分类统计
+     */
+    @Query("SELECT jc.id, jc.name, COUNT(j.id), jc.description " +
+           "FROM JobCategory jc LEFT JOIN Job j ON jc.id = j.categoryId AND j.status = 'ACTIVE' " +
+           "WHERE jc.status = 1 " +
+           "GROUP BY jc.id, jc.name, jc.description " +
+           "ORDER BY jc.sortOrder")
+    List<Object[]> findJobCategoryStats();
 }

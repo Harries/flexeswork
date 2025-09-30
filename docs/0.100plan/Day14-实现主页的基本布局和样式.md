@@ -79,140 +79,26 @@
   - 合作企业数量
 - 添加数据更新时间说明
 
-## 技术实现
+## 提示词
+1.prototype/Flexes/index-3.html  前端 首页参照这个页面实现，样式和图片可以照抄
+2.根据这样页面生成API和后端接口服务
 
-### 主页组件结构
-```jsx
-// HomePage.jsx
-import React from 'react';
-import { Layout } from 'antd';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import FeaturedJobs from './components/FeaturedJobs';
-import CompanyShowcase from './components/CompanyShowcase';
-import Statistics from './components/Statistics';
-import Footer from './components/Footer';
+task1:
+1.整体网页的字体样式和大小保持一致
+2.Recent Job Posted这块没有实现原页面效果
+3.鼠标点击上去的效果没有实现
 
-const { Content } = Layout;
+task2:
+- 首页head上面的home 鼠标移动上去 不要弹出窗，只是首页的链接就行
+- Reviews From Our Users  这个模块，只展示一条数据，效果左右滑动显示其他数据
+- 首页右上少了登录/注册按钮，以及多种语言切换的按钮
+- header和footer字体样式和大小与原页面还是不一致
+- 首页向下拉 header会固定住，可参与原页面效果
 
-const HomePage = () => {
-  return (
-    <Layout>
-      <Header />
-      <Content>
-        <HeroSection />
-        <FeaturedJobs />
-        <CompanyShowcase />
-        <Statistics />
-      </Content>
-      <Footer />
-    </Layout>
-  );
-};
 
-export default HomePage;
-```
-
-### Hero区域搜索框
-```jsx
-// HeroSection.jsx
-import React from 'react';
-import { Input, Select, Button, Row, Col } from 'antd';
-import { SearchOutlined, EnvironmentOutlined } from '@ant-design/icons';
-
-const HeroSection = () => {
-  return (
-    <div className="hero-section">
-      <div className="hero-content">
-        <h1>连接优秀人才与理想工作</h1>
-        <p>专业的远程工作招聘平台</p>
-        <div className="search-box">
-          <Row gutter={16}>
-            <Col span={8}>
-              <Input 
-                placeholder="搜索职位、公司或技能"
-                prefix={<SearchOutlined />}
-                size="large"
-              />
-            </Col>
-            <Col span={6}>
-              <Select 
-                placeholder="选择地点"
-                size="large"
-                style={{ width: '100%' }}
-              >
-                <Option value="remote">远程工作</Option>
-                <Option value="beijing">北京</Option>
-                <Option value="shanghai">上海</Option>
-              </Select>
-            </Col>
-            <Col span={6}>
-              <Select 
-                placeholder="职位类别"
-                size="large"
-                style={{ width: '100%' }}
-              >
-                <Option value="frontend">前端开发</Option>
-                <Option value="backend">后端开发</Option>
-                <Option value="fullstack">全栈开发</Option>
-              </Select>
-            </Col>
-            <Col span={4}>
-              <Button type="primary" size="large" block>
-                搜索职位
-              </Button>
-            </Col>
-          </Row>
-        </div>
-      </div>
-    </div>
-  );
-};
-```
-
-### 样式配置
-```css
-/* HomePage.css */
-.hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 100px 0;
-  text-align: center;
-  color: white;
-}
-
-.hero-content h1 {
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-.hero-content p {
-  font-size: 20px;
-  margin-bottom: 40px;
-  opacity: 0.9;
-}
-
-.search-box {
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  padding: 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.featured-section {
-  padding: 80px 0;
-  background: #f5f5f5;
-}
-
-.statistics-section {
-  padding: 60px 0;
-  background: #001529;
-  color: white;
-  text-align: center;
-}
-```
+task3：
+- 帮我编写首页所需要的API接口文档放在docs/3.design/api-documentation-homepage.md
+- 帮我在后端工程flexes-backend下面实现首页所需要的API接口后台代码
 
 ## 验收标准
 
